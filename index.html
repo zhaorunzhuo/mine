@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<!--suppress CssUnusedSymbol -->
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--/公共jsp -->
+
+
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="format-detection" content="telephone=yes">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        /*主题色*/
+        .mt-bColor-theme {
+            border-color: #52C7CA;
+        }
+
+        .mt-color-theme {
+            color: #52C7CA;
+        }
+
+
+        /*背景色*/
+
+        .mt-bg-lv3 {
+            background-color: #FFFFFF;
+        }
+
+        .mt-bg-primary {
+            background-color: #52C7CA;
+        }
+
+        /*基础字体色*/
+        .mt-color-grey {
+            color: #1E2329;
+        }
+
+        .mt-color-grey-lv2 {
+            color: #2F343B;
+        }
+
+        .mt-color-grey-lv4 {
+            color: #BDC0C5;
+        }
+
+        .mt-color-white {
+            color: #FFFFFF;
+        }
+
+        /*边框色*/
+        .mt-bColor-grey-lv4 {
+            border-color: #BDC0C5;
+        }
+
+
+    </style>
+    <style>
+
+        .mint-header-button > a {
+            color: inherit
+        }
+
+
+        .mint-cell img {
+            vertical-align: middle
+        }
+
+
+        @-webkit-keyframes v-modal-in {
+            0% {
+                opacity: 0
+            }
+        }
+
+        @keyframes v-modal-in {
+            0% {
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes v-modal-out {
+            to {
+                opacity: 0
+            }
+        }
+
+        @keyframes v-modal-out {
+            to {
+                opacity: 0
+            }
+        }
+
+
+        input:not([type]):disabled, input[type=color i]:disabled, input[type=date i]:disabled, input[type=datetime-local i]:disabled, input[type=datetime i]:disabled, input[type=email i]:disabled, input[type=month i]:disabled, input[type=number i]:disabled, input[type=password i]:disabled, input[type=search i]:disabled, input[type=tel i]:disabled, input[type=text i]:disabled, input[type=time i]:disabled, input[type=url i]:disabled, input[type=week i]:disabled, textarea:disabled {
+            background-color: transparent
+        }
+
+        .mint-field.is-autoheight .mint-cell-value textarea {
+            position: absolute;
+            top: 5px;
+            left: 0;
+            height: calc(100% - 10px)
+        }
+
+
+        textarea {
+            padding: 2px 0 0
+        }
+
+
+        .mint-badge {
+            text-align: center;
+            display: inline-block;
+            border: 1px solid transparent
+        }
+
+
+        .mint-badge.is-size-small {
+            border-radius: 9px;
+            font-size: 11px;
+            padding: 2px 6px
+        }
+
+
+        .mint-step--error .mint-icon, .mint-step--finish .mint-icon, .mint-step--process .mint-icon {
+            font-size: 23px;
+            line-height: 23px
+        }
+
+
+        .mint-step--vertical .mint-step__circle-container > i {
+            position: absolute;
+            z-index: 2
+        }
+
+
+        .mint-steps .mint-icon {
+            font-size: 23px;
+            line-height: 1
+        }
+
+
+        .mint-switch * {
+            pointer-events: none
+        }
+
+
+        @-webkit-keyframes mint-spinner-rotate {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            to {
+                -webkit-transform: rotate(1turn);
+                transform: rotate(1turn)
+            }
+        }
+
+        @keyframes mint-spinner-rotate {
+            0% {
+                -webkit-transform: rotate(0deg);
+                transform: rotate(0deg)
+            }
+            to {
+                -webkit-transform: rotate(1turn);
+                transform: rotate(1turn)
+            }
+        }
+
+
+        @-webkit-keyframes mint-spinner-double-bounce {
+            0%, to {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            50% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes mint-spinner-double-bounce {
+            0%, to {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            50% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+
+        @-webkit-keyframes mint-spinner-triple-bounce {
+            0%, 80%, to {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            40% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes mint-spinner-triple-bounce {
+            0%, 80%, to {
+                -webkit-transform: scale(0);
+                transform: scale(0)
+            }
+            40% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+
+        @-webkit-keyframes mint-fading-circle {
+            0%, 39%, to {
+                opacity: 0
+            }
+            40% {
+                opacity: 1
+            }
+        }
+
+        @keyframes mint-fading-circle {
+            0%, 39%, to {
+                opacity: 0
+            }
+            40% {
+                opacity: 1
+            }
+        }
+
+        .mint-tab-item {
+            position: relative;
+            display: block;
+            padding: 5px 0 3px;
+            -webkit-box-flex: 1;
+            -ms-flex: 1;
+            flex: 1;
+            font-size: 10px;
+            text-decoration: none
+        }
+
+        .mint-tab-item > span {
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+
+        .mint-tab-item-icon > :not(.mint-badge) {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 26px
+        }
+
+        .mint-tab-item-icon > .mint-badge {
+            position: absolute;
+            top: 0;
+            right: 0
+        }
+
+
+        .mint-tab-item-label {
+            line-height: 1
+        }
+
+        .mint-tab-container-item {
+            position: relative;
+            -ms-flex-negative: 0;
+            flex-shrink: 0;
+            width: 100%;
+            box-sizing: border-box
+        }
+
+        .mint-tab-container {
+            position: relative
+        }
+
+
+        .mint-tab-container-wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex
+        }
+
+        .mint-navbar {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            text-align: center;
+            width: 100%;
+            overflow-x: auto
+        }
+
+        .mint-navbar .mint-tab-item {
+            padding: 14px 0 13px;
+            font-size: 14px;
+            border-bottom-width: 1px;
+            border-bottom-style: solid
+        }
+
+        .mint-navbar .mint-tab-item:last-child {
+            border-right: 0
+        }
+
+        .mint-navbar .mint-tab-item.is-selected {
+            border-bottom-width: 2px
+        }
+
+
+        .mint-side-navbar .navbar .mint-tab-item {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            padding: 0;
+            height: 44px;
+            font-size: 14px;
+            box-shadow: inset 0 -1px 1px -1px #fff
+        }
+
+
+        input::-webkit-search-cancel-button {
+            display: none
+        }
+
+
+        .mint-input-block > label {
+            margin-right: 20px
+        }
+
+
+        .mint-swipe-items-wrap > div {
+            position: absolute;
+            -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+            width: 100%;
+            height: 100%;
+            display: none
+        }
+
+        .mint-swipe-items-wrap .mint-image, .mint-swipe-items-wrap img {
+            width: 100%;
+            height: 100%
+        }
+
+
+        .mint-cell-value .mt-range > div:only-child {
+            margin-right: 20px
+        }
+
+
+        .mt-range [slot=start] {
+            margin-right: 5px
+        }
+
+        .mt-range [slot=end] {
+            margin-left: 5px
+        }
+
+        .mt-range > div:first-child {
+            margin-right: 9px
+        }
+
+        .mt-range > div:only-child {
+            margin-right: 59px
+        }
+
+
+        .mint-picker-column ul {
+            box-sizing: border-box
+        }
+
+        .mint-picker-column li {
+            padding: 0 10px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis
+        }
+
+
+        .mt-picker-column-item div {
+            display: inline-block
+        }
+
+        .mt-picker-column-item div span {
+            display: table-cell;
+            vertical-align: middle
+        }
+
+        .mint-picker-column > ul {
+            width: calc(100% + 7px)
+        }
+
+        .mint-picker-column > ul::-webkit-scrollbar {
+            display: none
+        }
+
+        .select-value > span {
+            line-height: normal
+        }
+
+        .mint-no-data > img {
+            display: block;
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%)
+        }
+
+
+        .mint-selected-footer-list-header a {
+            -webkit-box-flex: 0;
+            -ms-flex-positive: 0;
+            flex-grow: 0;
+            height: 18px;
+            padding: 0 14px
+        }
+
+        .mint-selected-footer-list-header span {
+            -webkit-box-flex: 1;
+            -ms-flex-positive: 1;
+            flex-grow: 1
+        }
+
+
+        .calendar-tools span[data-v-21c32a0a] {
+            cursor: pointer
+        }
+
+
+        .calendar-info > div.month .month-inner > span[data-v-21c32a0a] {
+            display: block;
+            font-size: 14px;
+            height: 40px;
+            width: 100px;
+            overflow: hidden;
+            text-align: left
+        }
+
+        .calendar-tools > .setIcon[data-v-21c32a0a] {
+            width: 40px;
+            float: right;
+            text-align: center
+        }
+
+
+        .calendar table[data-v-21c32a0a] {
+            clear: both;
+            width: 100%;
+            border-collapse: collapse;
+            color: #1e2329
+        }
+
+        .calendar td[data-v-21c32a0a] {
+            margin: 2px !important;
+            padding: 0;
+            width: 14.28571429%;
+            height: 44px;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 14px;
+            line-height: 125%;
+            cursor: pointer;
+            position: relative;
+            vertical-align: top
+        }
+
+        .calendar td.disabled div[data-v-21c32a0a] {
+            color: #bdc0c5
+        }
+
+        .calendar td span[data-v-21c32a0a] {
+            display: block;
+            max-width: 40px;
+            height: 26px;
+            font-size: 16px;
+            line-height: 26px;
+            margin: 0 auto;
+            border-radius: 20px
+        }
+
+        .calendar td:not(.selected) span[data-v-21c32a0a]:not(.red):hover {
+            background: #f3f8fa;
+            color: #1e2329
+        }
+
+        .calendar td.selected span[data-v-21c32a0a] {
+            background-color: #52c7ca;
+            color: #fff
+        }
+
+        .calendar td .tag span[data-v-21c32a0a] {
+            position: absolute;
+            top: 5px;
+            left: calc(50% - 3px);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #92969c
+        }
+
+        .calendar thead td[data-v-21c32a0a] {
+            text-transform: uppercase;
+            height: 38px;
+            vertical-align: middle
+        }
+
+
+        .calendar-button span[data-v-21c32a0a] {
+            cursor: pointer;
+            display: inline-block;
+            min-height: 1em;
+            min-width: 5em;
+            vertical-align: baseline;
+            background: #5e7a88;
+            color: #fff;
+            margin: 0 .25em 0 0;
+            padding: .6em 2em;
+            font-size: 1em;
+            line-height: 1em;
+            text-align: center;
+            border-radius: .3em
+        }
+
+
+        .calendar-years > span[data-v-21c32a0a] {
+            width: 60px
+        }
+
+        .calendar-months > span[data-v-21c32a0a], .calendar-years > span[data-v-21c32a0a] {
+            margin: 1px 5px;
+            display: inline-block;
+            line-height: 30px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid #fbfbfb;
+            color: #1e2329
+        }
+
+        .calendar-months > span[data-v-21c32a0a] {
+            width: 20%
+        }
+
+
+        .mint-bread > span {
+            line-height: 42px;
+            display: inline-block;
+            position: relative;
+            font-size: 14px;
+            padding: 0 28px
+        }
+
+        .mint-bread > span:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 0;
+            height: 0;
+            right: -2px;
+            top: 17px;
+            border-style: solid;
+            border-width: 4px
+        }
+
+        .mint-bread > span:last-child:after {
+            display: none
+        }
+
+
+        .mt-progress > div:not(:last-child) {
+            margin-right: 9px
+        }
+
+        .mt-progress [slot=start] {
+            margin-right: 5px
+        }
+
+        .mt-progress [slot=end] {
+            margin-left: 5px
+        }
+
+
+        .mint-msgbox-input input {
+            border-width: 1px;
+            border-style: solid;
+            border-radius: 5px;
+            padding: 0 0 0 12px;
+            line-height: 42px;
+            width: 100%;
+            font-size: 17px;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            outline: none
+        }
+
+
+        @-webkit-keyframes v-modal-in {
+            0% {
+                opacity: 0
+            }
+        }
+
+        @keyframes v-modal-in {
+            0% {
+                opacity: 0
+            }
+        }
+
+        @-webkit-keyframes v-modal-out {
+            to {
+                opacity: 0
+            }
+        }
+
+        @keyframes v-modal-out {
+            to {
+                opacity: 0
+            }
+        }
+
+
+        .mint-indexsection-index + ul {
+            padding: 0
+        }
+
+
+        .mint-sub-button-container > * {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            width: 25px;
+            height: 25px;
+            -webkit-transition: -webkit-transform .3s ease-in-out;
+            transition: -webkit-transform .3s ease-in-out;
+            transition: transform .3s ease-in-out;
+            transition: transform .3s ease-in-out, -webkit-transform .3s ease-in-out
+        }
+
+        @-webkit-keyframes mint-zoom {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            10% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1)
+            }
+            30% {
+                -webkit-transform: scale(.9);
+                transform: scale(.9)
+            }
+            50% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+            70% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+            90% {
+                -webkit-transform: scale(1.01);
+                transform: scale(1.01)
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        @keyframes mint-zoom {
+            0% {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+            10% {
+                -webkit-transform: scale(1.1);
+                transform: scale(1.1)
+            }
+            30% {
+                -webkit-transform: scale(.9);
+                transform: scale(.9)
+            }
+            50% {
+                -webkit-transform: scale(1.05);
+                transform: scale(1.05)
+            }
+            70% {
+                -webkit-transform: scale(.95);
+                transform: scale(.95)
+            }
+            90% {
+                -webkit-transform: scale(1.01);
+                transform: scale(1.01)
+            }
+            to {
+                -webkit-transform: scale(1);
+                transform: scale(1)
+            }
+        }
+
+        .mint-textarea.is-autoheight .mint-cell-value textarea {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%
+        }
+
+
+        textarea {
+            padding: 1px 0 0
+        }
+
+        .mint-text {
+            position: relative;
+            word-break: break-word
+        }
+
+        pre {
+            margin: 0;
+            font-size: inherit;
+            font-family: PingFang SC, Microsoft YaHei;
+            word-wrap: break-word;
+            white-space: pre-wrap
+        }
+
+        .mint-image {
+            position: relative
+        }
+
+        .mint-image-clip button {
+            border-radius: 5px
+        }
+
+
+        .cube-slide-dots > span {
+            display: inline-block;
+            vertical-align: bottom;
+            margin: 0 1px;
+            width: 10px;
+            height: 1px;
+            background: #ccc
+        }
+
+        .cube-slide-item > a {
+            overflow: hidden;
+            text-decoration: none
+        }
+
+        .cube-slide-item > a, .cube-slide-item > a > img {
+            display: block;
+            height: 100%
+        }
+
+
+        @-webkit-keyframes spinner-fade {
+            0% {
+                opacity: .85
+            }
+            50% {
+                opacity: .25
+            }
+            to {
+                opacity: .25
+            }
+        }
+
+        @keyframes spinner-fade {
+            0% {
+                opacity: .85
+            }
+            50% {
+                opacity: .25
+            }
+            to {
+                opacity: .25
+            }
+        }
+
+
+        .mint-layout-container {
+            position: relative
+        }
+
+        .mint-layout-container:after {
+            content: "";
+            display: table;
+            clear: both
+        }
+
+
+        .mint-icon {
+            position: relative;
+            display: inline-block
+        }
+
+        .mt-icon > i {
+            font-size: inherit
+        }
+
+        .mint-icon-i {
+            display: inline-block
+        }
+
+
+        .bh-ddb-item label {
+            position: relative;
+            display: inline-block;
+            max-width: 70%;
+            margin: 0 auto;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            vertical-align: top;
+            text-align: center
+        }
+
+
+        body {
+            font-family: PingFang SC, Microsoft YaHei
+        }
+
+        blockquote, body, button, dd, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+            margin: 0;
+            padding: 0
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-size: 100%
+        }
+
+        address, cite, dfn, em, var {
+            font-style: normal
+        }
+
+        code, kbd, pre, samp {
+            font-family: PingFang SC, Microsoft YaHei
+        }
+
+        small {
+            font-size: 12px
+        }
+
+        ol, ul {
+            list-style: none
+        }
+
+        a, a:hover {
+            text-decoration: none
+        }
+
+        sup {
+            vertical-align: text-top
+        }
+
+        sub {
+            vertical-align: text-bottom
+        }
+
+        legend {
+            color: #000
+        }
+
+        fieldset, img {
+            border: 0
+        }
+
+        button, input, select, textarea {
+            font-size: 100%
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0
+        }
+
+        input, textarea {
+            border: 0
+        }
+
+        textarea {
+            resize: none
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline-offset: 0;
+            outline: none
+        }
+
+        button, input[type=email], input[type=number], input[type=password], input[type=search], input[type=text], select, textarea {
+            margin: 0;
+            -webkit-appearance: none
+        }
+
+        input:not([type]):disabled, input[type=color]:disabled, input[type=date]:disabled, input[type=datetime-local]:disabled, input[type=datetime]:disabled, input[type=email]:disabled, input[type=month]:disabled, input[type=number]:disabled, input[type=password]:disabled, input[type=search]:disabled, input[type=tel]:disabled, input[type=text]:disabled, input[type=time]:disabled, input[type=url]:disabled, input[type=week]:disabled, textarea:disabled {
+            background-color: #fff
+        }
+
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            color: #92969c
+        }
+
+        input:-moz-placeholder, input::-moz-placeholder, textarea:-moz-placeholder, textarea::-moz-placeholder {
+            color: #92969c
+        }
+
+        input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+            color: #92969c
+        }
+
+    </style>
+    <style>
+
+
+        .qrcode_scan label {
+            font-size: 16px;
+        }
+
+        .qrcode_scan i {
+            font-size: 66px;
+            width: 66px;
+            height: 66px;
+            line-height: 66px;
+        }
+
+        .qrcode_scan a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 129px;
+            height: 129px;
+            color: #fff;
+            background: #52C7CA;
+            border-radius: 90px;
+            box-shadow: #52C7CA 0px 2px 6px;
+        }
+
+        .qrcode_scan a:active {
+            color: #fff;
+            background: #039AD6;
+            box-shadow: #039AD6 0px 2px 6px;
+        }
+
+
+        .summary h3 {
+            font-size: 14px;
+            color: #666;
+        }
+
+
+        .bottom_tip .left div {
+            width: 6px;
+            height: 6px;
+            background: #24DAAC;
+            margin-right: 8px;
+        }
+
+        .bottom_tip .right div {
+            width: 6px;
+            height: 6px;
+            background: #DDDDDD;
+            margin-right: 8px;
+        }
+
+
+        .fxyq_fxsq .xszp_image {
+            width: 86px !important;
+            height: 86px !important;
+            border-top-left-radius: 43px !important;
+            border-bottom-left-radius: 43px !important;
+            border-top-right-radius: 43px !important;
+            border-bottom-right-radius: 43px !important;
+            display: inline-block !important;
+            margin: 20px;
+        }
+
+        .fxyq_fxsq .xsxx {
+            display: inline-block;
+            margin-top: 30px;
+            vertical-align: top;
+            font-size: 16px;
+            line-height: 30px;
+            color: white;
+        }
+
+
+        /**外出申请**/
+
+        .fxyq_wcsq .wcsq-tab-content {
+            background-color: white;
+            margin-bottom: 100px;
+            min-height: 400px;
+        }
+
+        .fxyq_wcsq .wcsq-erm-title {
+            line-height: 50px;
+            margin-left: 30px;
+            margin-right: 30px;
+            height: 50px;
+            font-size: 18px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .fxyq_wcsq .wcsq-ld-content {
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+        }
+
+        .fxyq_wcsq .wcsq-ld-img {
+            width: 26px;
+            height: 26px;
+            margin-top: 12px;
+            margin-right: 5px;
+            display: inline-block;
+        }
+
+        .fxyq_wcsq .wcsq-ld-text {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .fxyq_wcsq .wcsq-ewm-content {
+            margin-left: calc(50vw - 85px);
+            width: 170px;
+            height: 170px;
+            border: 1px solid rgba(239, 239, 239, 1);
+            margin-top: 10px;
+        }
+
+        .fxyq_wcsq .wcsq-ewm-tip {
+            margin-left: calc(20vw);
+            width: calc(60vw);
+            text-align: center;
+            font-size: 12px;
+            color: rgb(146, 150, 156);
+            margin-top: 20px;
+            padding-bottom: 30px;
+        }
+
+        .fxyq_wcsq .wcsq-list-tb {
+            width: 16px;
+            height: 16px;
+            margin-top: 2px;
+            float: left;
+            text-align: left;
+            margin-right: 5px;
+        }
+
+        .fxyq_wcsq .wcsq-list-shnr {
+            margin-top: 10px !important;
+            margin-bottom: 0px !important;
+            padding-left: 4px !important;
+        }
+
+        .fxyq_wcsq .wcsq-list-shtb {
+            margin: 2px !important;;
+        }
+
+        .fxyq_wcsq .wcsq-list-shtxt {
+            font-size: 16px !important;
+        }
+
+        .pk1itqqpj .OPk1iu6ki2 {
+            margin-bottom: 16px !important;
+            padding: 4px 16px 16px 16px !important;
+        }
+
+        .pk1itqqpj .OPk1iu6ki3 {
+            height: 40px !important;
+            border-color: #e5e9ea !important;
+            border-bottom-style: solid !important;
+            border-bottom-width: 1px !important;
+        }
+
+        .pk1itqqpj .OPk1iu6ki5 {
+            height: 25px !important;
+            text-align: left !important;
+            float: left !important;
+            margin-top: 8px !important;
+        }
+
+        .pk1itqqpj .OPk1iu6ki6 {
+            text-align: left !important;
+            line-height: 40px !important;
+            float: left !important;
+            font-size: 16px !important;
+            color: #555555 !important;
+            margin-left: 8px !important;
+        }
+
+
+        .pk1itqqpj .OPk1iu6kiij {
+            font-size: 14px !important;
+            color: #999999 !important;
+            line-height: 20px !important;
+            width: 100px !important;
+            text-align: left !important;
+            float: left !important;
+            flex: 0 0 70px !important;
+        }
+
+        .pk1itqqpj .OPk1iu6kiie {
+            text-align: left !important;
+            float: left !important;
+            color: #555555 !important;
+            font-size: 14px !important;
+            line-height: 20px !important;
+        }
+
+
+        .pk6sm8biv .OPk6sot572x {
+            margin-bottom: 8px !important;
+            margin-top: 8px !important;
+        }
+
+
+        .pk6sm8biv .OCk6sot56t {
+            width: 75px !important;
+            display: inline-block !important;
+            flex: 0 0 75px !important;
+        }
+
+        .pk6sm8biv .OCk6sot56u {
+            display: inline-block !important;
+        }
+
+        .pk6sm8biv .OPk6sot573z {
+            float: left !important;
+            margin-right: 4px !important;
+        }
+
+
+        .pk6sm8biv .OPk6sop1z2 {
+            display: inline-block !important;
+        }
+
+        .pk6sm8biv .OPk6sop1z5q {
+            display: inline-block !important;
+        }
+
+        .pk6sm8biv .OPk6sppio7d {
+            display: inline-block !important;
+            background-color: #4FC033 !important;
+        }
+
+        .pk6sm8biv .OPk6sppiocq {
+            display: inline-block !important;
+            color: #4FC033 !important;
+        }
+
+
+        .fxsh-tj-img img {
+            width: 22px;
+        }
+
+
+    </style>
+    <style>
+
+
+        .bh-color-gray {
+            color: #1e2329 !important
+        }
+
+
+        .bh-color-gray-3 {
+            color: #92969c !important
+        }
+
+
+        .bh-bg-color-light {
+            background-color: #fff !important
+        }
+
+        .bh-color-red {
+            color: #f26666 !important
+        }
+
+
+        .bh-bg-color-red {
+            background-color: #f26666 !important
+        }
+
+
+        * {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box
+        }
+
+        html {
+            -webkit-tap-highlight-color: transparent
+        }
+
+        body {
+            background-color: #F4F4F4;
+            font-family: "PingFang SC";
+            margin: 0
+        }
+
+        a {
+            text-decoration: none
+        }
+
+        a:focus, button:focus, input:focus, textarea:focus {
+            outline: 0
+        }
+
+        ol, ul {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+
+        .sjakuc6ex {
+            width: 6px !important;
+            height: 6px !important;
+            padding: 0 !important
+        }
+
+
+        .sjaky9s9n {
+            font-size: 14px !important
+        }
+
+
+        .sjakvxbio {
+            font-size: 14px !important
+        }
+
+
+    </style>
+
+
+</head>
+
+<body style="zoom: 1;">
+
+
+<div id="app">
+    <div class="mint-layout-container fxyq_fxsq fxyq_wcsq">
+        <div class="mint-layout-container" style="">
+            <div class="mint-layout-container pjwvpma57">
+                <div class="mint-navbar mt-bg-lv3 mt-bColor-grey-lv4">
+                    <a class="mint-tab-item is-selected mt-bColor-theme " style="min-width: 0px;"
+                       id="anniu1_href">
+                        <div class="mint-tab-item-label mt-color-theme" id="anniu1">外出申请</div><!----></a>
+                    <a class="mint-tab-item mt-color-grey-lv4" style="min-width: 0px;"
+                       id="anniu2_href">
+                        <div class="mint-tab-item-label mt-color-grey-lv2" id="anniu2">外出记录</div><!----></a>
+                </div>
+                <div class="mint-tab-container">
+                    <div class="mint-tab-container-wrap">
+                        <div class="mint-tab-container-item" id="xianshi1">
+                            <div class="wcsq-tab-content" style="">
+                                <div style="background-color: rgb(82, 199, 202);">
+                                    <div class="mint-layout-container bh-bg-color-light xszp_image">
+                                        <img src="./images/none.png" class="mint-image"
+                                             style="width: 80px; height: 80px; border-radius: 50%; margin: 3px;"></div>
+                                    <div class="xsxx">
+                                        <div>赵润卓&nbsp;&nbsp;1202121771</div>
+                                        <div>自动化学院/</div>
+                                    </div>
+                                </div> <!---->
+                                <div class="mint-text wcsq-erm-title mt-color-grey">临时出校二维码</div>
+
+                                <div class="wcsq-ld-content" style=""><img alt="" src="./images/ld2.png"
+                                                                           class="wcsq-ld-img">
+                                    <div class="wcsq-ld-text" style="color: rgb(255, 153, 24);">距离返回时间还剩：<span
+                                            id="day_show">0天</span>&nbsp;<span id="hour_show">00</span>:<span
+                                            id="minute_show">00</span>:<span id="second_show">00</span>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="wcsq-ewm-content">
+                                    <div id="wcsq_school_code" title="1202121770" style="margin: 10px;">
+                                        <img alt="Scan me!" src="images/qr_code.png"
+                                             style="display: block;"></div>
+                                </div>
+                                <div class="wcsq-ewm-tip">请向校方检查人员出示二维码，扫码进出校～</div>
+
+                            </div>
+                        </div>
+                        <div class="mint-tab-container-item" style="display: none;" id="xianshi2">
+                            <div class="mint-layout-container pk1itqqpj pk6sm8biv" style="">
+                                <div class="mint-layout-container" id="scroll_container" infinite-scroll-distance="20">
+                                    <div class="mint-layout-container bh-bg-color-light OPk1iu6ki2">
+                                        <div class="mint-layout-container">
+                                            <div class="mint-layout-container">
+                                                <div class="mint-layout-container OPk1iu6ki3"><img
+                                                        src="./images/rl.png" class="mint-image OPk1iu6ki5">
+                                                    <div class="mint-text OPk1iu6ki6 mt-color-default"><span
+                                                            class="this_day">2021-09-16</span></div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计外出时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default"><span
+                                                            class="this_day">2021-09-16</span>
+                                                        06:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计返回时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default"><span
+                                                            class="this_day">2021-09-16</span> 21:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container OCk6sot574b OPk6sot572x"><span
+                                                        class="mint-icon OPk6sot573z"><i
+                                                        class="iconfont mint-icon-i icon-xinxi"
+                                                        style="color: rgb(146, 150, 156);"></i></span>
+                                                    <div class="mint-text bh-color-gray-3 sjaky9s9n OCk6sot56s OCk6sot56t mt-color-default">
+                                                        离校事由：
+                                                    </div>
+                                                    <div class="mint-text bh-color-gray sjakvxbio OPk6sot56t OCk6sot56u mt-color-default">
+                                                        临时外出
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/qz.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">目的地：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">湖北省人民医院</div>
+                                                </div>
+                                            </div>
+                                            <div class="mint-layout-container OPk6sppiq1u  wcsq-list-shnr"><span
+                                                    class="mint-badge sjakuc6ex OCk6sppiodq OPk6sppio7d wcsq-list-shtb mt-color-white mt-bg-primary is-size-small"></span>
+                                                <div class="mint-text sjaky9s9n OPk6sppiobt OPk6sppiocq wcsq-list-shtxt mt-color-default">
+                                                    已通过
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mint-layout-container bh-bg-color-light OPk1iu6ki2">
+                                        <div class="mint-layout-container">
+                                            <div class="mint-layout-container">
+                                                <div class="mint-layout-container OPk1iu6ki3"><img
+                                                        src="./images/rl.png" class="mint-image OPk1iu6ki5">
+                                                    <div class="mint-text OPk1iu6ki6 mt-color-default">2021-09-11</div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计外出时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-11
+                                                        08:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计返回时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-10-11
+                                                        20:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container OCk6sot574b OPk6sot572x"><span
+                                                        class="mint-icon OPk6sot573z"><i
+                                                        class="iconfont mint-icon-i icon-xinxi"
+                                                        style="color: rgb(146, 150, 156);"></i></span>
+                                                    <div class="mint-text bh-color-gray-3 sjaky9s9n OCk6sot56s OCk6sot56t mt-color-default">
+                                                        离校事由：
+                                                    </div>
+                                                    <div class="mint-text bh-color-gray sjakvxbio OPk6sot56t OCk6sot56u mt-color-default">
+                                                        临时外出
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/qz.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">目的地：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">湖北省人民医院</div>
+                                                </div>
+                                            </div>
+                                            <div class="mint-layout-container OCk6somvcoq wcsq-list-shnr"><span
+                                                    class="mint-badge bh-bg-color-red sjakuc6ex OCk6somvcj OPk6sop1z2 wcsq-list-shtb mt-color-white mt-bg-primary is-size-small"></span>
+                                                <div class="mint-text bh-color-red sjaky9s9n OPk6somvck OPk6sop1z5q wcsq-list-shtxt mt-color-default">
+                                                    院系审核不通过
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mint-layout-container bh-bg-color-light OPk1iu6ki2">
+                                        <div class="mint-layout-container">
+                                            <div class="mint-layout-container">
+                                                <div class="mint-layout-container OPk1iu6ki3"><img
+                                                        src="./images/rl.png" class="mint-image OPk1iu6ki5">
+                                                    <div class="mint-text OPk1iu6ki6 mt-color-default">2021-09-16</div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计外出时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-16
+                                                        06:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计返回时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-16
+                                                        21:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container OCk6sot574b OPk6sot572x"><span
+                                                        class="mint-icon OPk6sot573z"><i
+                                                        class="iconfont mint-icon-i icon-xinxi"
+                                                        style="color: rgb(146, 150, 156);"></i></span>
+                                                    <div class="mint-text bh-color-gray-3 sjaky9s9n OCk6sot56s OCk6sot56t mt-color-default">
+                                                        离校事由：
+                                                    </div>
+                                                    <div class="mint-text bh-color-gray sjakvxbio OPk6sot56t OCk6sot56u mt-color-default">
+                                                        临时外出
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/qz.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">目的地：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">湖北省人民医院</div>
+                                                </div>
+                                            </div>
+                                            <div class="mint-layout-container OPk6sppiq1u  wcsq-list-shnr"><span
+                                                    class="mint-badge sjakuc6ex OCk6sppiodq OPk6sppio7d wcsq-list-shtb mt-color-white mt-bg-primary is-size-small"></span>
+                                                <div class="mint-text sjaky9s9n OPk6sppiobt OPk6sppiocq wcsq-list-shtxt mt-color-default">
+                                                    已通过
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mint-layout-container bh-bg-color-light OPk1iu6ki2">
+                                        <div class="mint-layout-container">
+                                            <div class="mint-layout-container">
+                                                <div class="mint-layout-container OPk1iu6ki3"><img
+                                                        src="./images/rl.png" class="mint-image OPk1iu6ki5">
+                                                    <div class="mint-text OPk1iu6ki6 mt-color-default">2021-09-17</div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计外出时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-17
+                                                        06:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计返回时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-17
+                                                        21:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container OCk6sot574b OPk6sot572x"><span
+                                                        class="mint-icon OPk6sot573z"><i
+                                                        class="iconfont mint-icon-i icon-xinxi"
+                                                        style="color: rgb(146, 150, 156);"></i></span>
+                                                    <div class="mint-text bh-color-gray-3 sjaky9s9n OCk6sot56s OCk6sot56t mt-color-default">
+                                                        离校事由：
+                                                    </div>
+                                                    <div class="mint-text bh-color-gray sjakvxbio OPk6sot56t OCk6sot56u mt-color-default">
+                                                        临时外出
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/qz.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">目的地：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">湖北省人民医院</div>
+                                                </div>
+                                            </div>
+                                            <div class="mint-layout-container OPk6sppiq1u  wcsq-list-shnr"><span
+                                                    class="mint-badge sjakuc6ex OCk6sppiodq OPk6sppio7d wcsq-list-shtb mt-color-white mt-bg-primary is-size-small"></span>
+                                                <div class="mint-text sjaky9s9n OPk6sppiobt OPk6sppiocq wcsq-list-shtxt mt-color-default">
+                                                    已通过
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mint-layout-container bh-bg-color-light OPk1iu6ki2">
+                                        <div class="mint-layout-container">
+                                            <div class="mint-layout-container">
+                                                <div class="mint-layout-container OPk1iu6ki3"><img
+                                                        src="./images/rl.png" class="mint-image OPk1iu6ki5">
+                                                    <div class="mint-text OPk1iu6ki6 mt-color-default">2021-09-20</div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计外出时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-20
+                                                        06:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/time.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">预计返回时间：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">2021-09-20
+                                                        21:00
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container OCk6sot574b OPk6sot572x"><span
+                                                        class="mint-icon OPk6sot573z"><i
+                                                        class="iconfont mint-icon-i icon-xinxi"
+                                                        style="color: rgb(146, 150, 156);"></i></span>
+                                                    <div class="mint-text bh-color-gray-3 sjaky9s9n OCk6sot56s OCk6sot56t mt-color-default">
+                                                        离校事由：
+                                                    </div>
+                                                    <div class="mint-text bh-color-gray sjakvxbio OPk6sot56t OCk6sot56u mt-color-default">
+                                                        临时外出
+                                                    </div>
+                                                </div>
+                                                <div class="mint-layout-container" style="margin-top: 10px;"><img
+                                                        src="./images/qz.png" class="mint-image wcsq-list-tb">
+                                                    <div class="mint-text OPk1iu6kiij mt-color-default">目的地：</div>
+                                                    <div class="mint-text OPk1iu6kiie mt-color-default">湖北省人民医院</div>
+                                                </div>
+                                            </div>
+                                            <div class="mint-layout-container OPk6sppiq1u  wcsq-list-shnr"><span
+                                                    class="mint-badge sjakuc6ex OCk6sppiodq OPk6sppio7d wcsq-list-shtb mt-color-white mt-bg-primary is-size-small"></span>
+                                                <div class="mint-text sjaky9s9n OPk6sppiobt OPk6sppiocq wcsq-list-shtxt mt-color-default">
+                                                    已通过
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!---->
+    </div>
+
+
+</body>
+<script type="text/javascript">
+    $('#anniu2').click(function () {
+        $('#anniu1').removeClass('mt-color-theme');
+        $('#anniu1').addClass('mt-color-grey-lv2');
+        $('#anniu2').removeClass('mt-color-grey-lv2');
+        $('#anniu2').addClass('mt-color-theme');
+        $('#anniu1_href').addClass('mt-color-grey-lv4');
+        $('#anniu1_href').removeClass('is-selected');
+        $('#anniu2_href').addClass('is-selected mt-bColor-theme');
+        $('#anniu2_href').removeClass('mt-color-grey-lv4');
+
+        $('#xianshi1').hide();
+        $('#xianshi2').show();
+    })
+    $('#anniu1').click(function () {
+        $('#anniu2').removeClass('mt-color-theme');
+        $('#anniu2').addClass('mt-color-grey-lv2');
+        $('#anniu1').removeClass('mt-color-grey-lv2');
+        $('#anniu1').addClass('mt-color-theme');
+        $('#anniu2_href').addClass('mt-color-grey-lv4');
+        $('#anniu2_href').removeClass('is-selected');
+        $('#anniu1_href').addClass('is-selected mt-bColor-theme');
+        $('#anniu1_href').removeClass('mt-color-grey-lv4');
+
+        $('#xianshi2').hide();
+        $('#xianshi1').show();
+    })
+
+    var intDiff = parseInt(23660);//倒计时总秒数量
+    function timer(intDiff) {
+        window.setInterval(function () {
+            var day = 0,
+                hour = 07,
+                minute = 34,
+                second = 12;//时间默认值
+            if (intDiff > 0) {
+                day = Math.floor(intDiff / (60 * 60 * 24));
+                hour = Math.floor(intDiff / (60 * 60)) - (day * 24);
+                minute = Math.floor(intDiff / 60) - (day * 24 * 60) - (hour * 60);
+                second = Math.floor(intDiff) - (day * 24 * 60 * 60) - (hour * 60 * 60) - (minute * 60);
+            }
+            if (hour <= 9) hour = '0' + hour;
+            if (minute <= 9) minute = '0' + minute;
+            if (second <= 9) second = '0' + second;
+            $('#day_show').html(day + "天");
+            $('#hour_show').html('<s id="h"></s>' + hour + '');
+            $('#minute_show').html('<s></s>' + minute + '');
+            $('#second_show').html('<s></s>' + second + '');
+            intDiff--;
+        }, 1000);
+    }
+
+    $(function () {
+        timer(intDiff);
+    });
+    var formattedDate = new Date();
+    var day = formattedDate.getDate();
+    var month = formattedDate.getMonth();
+    month += 1;  // JavaScript months are 0-11
+    var year = formattedDate.getFullYear();
+
+    if (day <= 9) day = '0' + day;
+    if (month <= 9) month = '0' + month;
+
+
+    $(".this_day").html(year + "-" + month + "-" + day);
+
+</script>
+</html>
